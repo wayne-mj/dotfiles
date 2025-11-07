@@ -3,11 +3,11 @@
 ### Add Flathub/Flatpak
 if [ -x /usr/bin/flatpak ]; then
   /usr/bin/flatpak remote-add --if-not-exists flathub \
-  https://fl.flathub.org/repo/flathub.flatpakrepo
+  https://dl.flathub.org/repo/flathub.flatpakrepo
 fi
 
 ### Add Extra packages for Enterprise linux
-sudo dnf install epel-release
+sudo dnf install epel-release -y
 
 ### Adding Brave Browser repository
 sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
