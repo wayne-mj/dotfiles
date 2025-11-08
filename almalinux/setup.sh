@@ -25,17 +25,17 @@ sudo dnf install code -y # or code-insiders
 
 ### Adding Anaconda to manage Python
 # Import our GPG public key
-rpm --import https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+# rpm --import https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
 
-# Add the Anaconda repository
-cat <<EOF > /etc/yum.repos.d/conda.repo
-[conda]
-name=Conda
-baseurl=https://repo.anaconda.com/pkgs/misc/rpmrepo/conda
-enabled=1
-gpgcheck=1
-gpgkey=https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
-EOF
+# # Add the Anaconda repository
+# cat <<EOF > /etc/yum.repos.d/conda.repo
+# [conda]
+# name=Conda
+# baseurl=https://repo.anaconda.com/pkgs/misc/rpmrepo/conda
+# enabled=1
+# gpgcheck=1
+# gpgkey=https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc
+# EOF
 
-### Installing Conda
-sudo dnf install conda -y
+# ### Installing Conda
+# sudo dnf install conda -y
