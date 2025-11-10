@@ -55,3 +55,11 @@ sudo dnf install code -y # or code-insiders
 # ### Installing Conda
 # sudo dnf install conda -y
 
+### Get miniConda
+# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+# if [ -e ./Miniconda3-latest-Linux-x86_64.sh ]; then
+#   sh ./Miniconda3-latest-Linux-x86_64.sh
+# fi
+
+
