@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$EUID" -eq 0]; then
+if [ "$EUID" -eq 0 ]; then
   echo "Please do no run this as root, but as your pleb self."
   exit 1
 fi
