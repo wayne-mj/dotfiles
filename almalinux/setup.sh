@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "$EUID" -eq 0]; then
+  echo "Please do no run this as root, but as your pleb self."
+  exit 1
+fi
+
 ### Add Flathub/Flatpak
 echo "Adding Flatpak"
 if [ -x /usr/bin/flatpak ]; then
