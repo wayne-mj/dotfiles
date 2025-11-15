@@ -37,13 +37,20 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mi
 sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg
 rm -f microsoft.gpg
 
-echo Downloading repository package
-wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-[ -e packages-microsoft-prod.deb ] && sudo dpkg -i packages-microsoft-prod.deb
+# echo Downloading repository package
+# wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+# [ -e packages-microsoft-prod.deb ] && sudo dpkg -i packages-microsoft-prod.deb
 
 echo Adding Repository for VS Code
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] \
-https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+# sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] \
+# https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.sources'
+sudo sh -c 'echo "
+Types: deb 
+URIs: https://packages.microsoft.com/repos/code 
+Suites: stable
+Components: main
+Architectures: amd64,arm64,armhf
+Signed-By: /usr/share/keyrings/microsoft.gpg" > /etc/apt/sources.list.d/vscode.sources'
 
 sudo apt update
 sudo apt install -y code # or code-insiders
