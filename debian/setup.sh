@@ -24,10 +24,19 @@ if [ ! -z "$latest_release_tag" ]; then
   curl -o- "$install_sh_url" | bash
 fi
 
-
 ### Installing Brave Browser
 echo "Installing Brave Browser"
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
 sudo apt update
-sudo apt install brave-browser
+sudo apt install -y brave-browser
+
+### VS Code
+echo "Installing VS Code"
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg
+rm -f microsoft.gpg
+
+sudo apt update
+sudo apt install -y code # or code-insiders
+
